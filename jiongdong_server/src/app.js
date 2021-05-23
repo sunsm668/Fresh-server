@@ -16,18 +16,18 @@ onerror(app)
 
 //cors 配置
 app.use(cors({
-  origin: 'http://localhost:8080',  //前端origin
+  origin: 'http://localhost:8080',     //前端origin
   Credentials: true //允许跨域带cookie
 }))
 
 // session 配置
-app.keys = ['jalhf$#%^$%sjkdf'] //密钥，用于加密
+app.keys = ['jalhf$#%^$%sjkdf']        //密钥，用于加密
 app.use(session({
   //配置cookie
   cookie:{
     path: '/',
-    httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000
+    httpOnly: true,                    //只能通过后端修改cookie
+    maxAge: 24 * 60 * 60 * 1000        //过期时间24h
   }
 }))
 

@@ -55,8 +55,31 @@
 }
 ```
 
+## 获取用户信息
 
-# 获取用户信息
+### url 
+
+`api/user/info`
+
+### method 
+
+`get`
+
+### request body
+
+无
+
+### response body
+
+```js
+{
+    errno: 0,
+    data:{
+     username: 'xxx'
+    },
+    message: 'errno != 0 ,错误信息'
+}
+```
 
 ## 创建收获地址
 
@@ -98,6 +121,7 @@
     message: 'errno != 0 ,错误信息'
 }
 ```
+
 ## 获取收货地址列表
 
 ### url 
@@ -296,7 +320,6 @@
         sales: 10,            //月售
         price: 33.6,          //优惠价
         oldPrice: 40.3,       //原价
-        slogan: 'VIP满98减4'
     }
     message: 'errno != 0 ,错误信息'
 }
