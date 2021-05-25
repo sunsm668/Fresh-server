@@ -363,3 +363,42 @@
     message: 'errno != 0 ,错误信息'
 }
 ```
+## 订单
+
+### url 
+
+`api/order` 
+
+
+### method 
+
+`post`
+
+### request body
+
+```js
+{
+  addressId: '收货地址id',
+  shopId: '店铺id',
+  shopName: '店铺名称',
+  isCanceled: true,  //订单是否被取消
+  products: [
+      {
+        id: '商品id',
+        num: 3 //购买数量
+      }
+  ]
+}
+```
+
+### response body
+
+```js
+{
+    errno: 0,
+    data:{
+        _id: '订单id',
+    }
+    message: 'errno != 0 ,错误信息'
+}
+```

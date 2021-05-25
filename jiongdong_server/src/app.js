@@ -1,18 +1,22 @@
-const Koa = require('koa')
-const app = new Koa()
-const views = require('koa-views')
-const json = require('koa-json')
-const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
-const session = require('koa-generic-session')
-const cors = require('koa2-cors')
+const Koa = require('koa');
+const app = new Koa();
+const views = require('koa-views');
+const json = require('koa-json');
+const onerror = require('koa-onerror');
+const bodyparser = require('koa-bodyparser');
+const logger = require('koa-logger');
+const session = require('koa-generic-session');
+const cors = require('koa2-cors');
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+//注册路由
+const index = require('./routes/index');
+const users = require('./routes/users');
+const addressRouter = require('./routes/address');
+const shopRouter = require('./routes/shop');
+const orderRouter = require('./routes/order');
 
 // error handler
-onerror(app)
+onerror(app);
 
 //cors 配置
 app.use(cors({
@@ -54,6 +58,9 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(addressRouter.routes(), addressRouter.allowedMethods())
+app.use(shopRouter.routes(), shopRouter.allowedMethods())
+app.use(orderRouter.routes(), orderRouter.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

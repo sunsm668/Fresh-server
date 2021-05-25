@@ -57,4 +57,34 @@
 
 ## 订单
 
-具有特殊性，待定
+```js
+{
+    _id: 'xxx',
+    username: 'zhangsan',
+    shopId: '店铺id',
+    shopName: '店铺名称',
+    isCanceled: true,  //订单是否被取消
+    address: {
+        username: '15966668888',
+        city: '北京',
+        department: '某某小区'，
+        houseNumber: '门牌号',
+        name: '张三',
+        phone: '15988886666'
+    },
+    products:[
+    {
+        product: {
+            shopId: 'xxx',        //对应商店id
+            name: '番茄 250 g/份',
+            imgUrl:'商品图片',
+            sales: 10,            //月售
+            price: 33.6,          //优惠价
+            oldPrice: 40.3,       //原价
+            tabs: ['all','seckill']   //属于那个tab栏
+        },
+        orderSales: 3
+    }
+    ]
+}
+```

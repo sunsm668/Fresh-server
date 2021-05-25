@@ -14,6 +14,6 @@ const Schema = mongoose.Schema({
     slogan: String
 },{ Timestamps: true });
 
-const Shop = mongoose.model('shop',Schema);
+const Shop = mongoose.model('shop', Schema);
 
 module.exports = Shop;
