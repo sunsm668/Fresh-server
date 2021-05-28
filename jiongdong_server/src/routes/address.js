@@ -29,14 +29,15 @@ router.get('/', loginCheak, async function ( ctx, next ) {
     const userInfo = ctx.session.userInfo;
     const username = userInfo.username;
     const list = await getAddressList(username);
-    ctx.body = new SuccessModel(list);
-    
+    ctx.body = new SuccessModel(list);    
 })
 
 // 获取单个收获地址
 router.get('/:id', loginCheak, async function ( ctx, next ) {
     const id = ctx.params.id;
+    console.log(id,'id..........................')
     const address = await getAddressById(id);
+    ctx.body = new SuccessModel(address);
     
 })
 //更新收获地址

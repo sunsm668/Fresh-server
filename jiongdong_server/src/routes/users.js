@@ -21,13 +21,13 @@ router.post('/register', async function ( ctx, next ) {
         const newUser = await register ( username, password );
         ctx.body = new SuccessModel( newUser );
     }catch(ex){
-        console.log(ex);
         ctx.body = new ErrorModel( 10001, `注册失败 - ${ex.message}`);
     }
 })
 
 //登陆
 router.post('/login', async function ( ctx, next ) {
+
     const { username, password } = ctx.request.body;
     //查询单个用户
     const res = await login(username, password);

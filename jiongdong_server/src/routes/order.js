@@ -1,9 +1,9 @@
 // order router
 
 const router = require('koa-router')();
-const { SuccessModel, ErrorModel } = require('../res-model/index');
 const loginCheck = require('../middleware/loginCheak');
-const { createOrder } = require('../controller/order');
+const { SuccessModel, ErrorModel } = require('../res-model/index');
+const { createOrder, getOrderById } = require('../controller/order');
 
 router.prefix('/api/order');
 
@@ -26,7 +26,12 @@ router.post('/', loginCheck, async function( ctx, next){
 
 
 // 获取订单列表
-
+router.get('/:id', loginCheck, async function ( ctx, next ) {
+    const id = ctx.params.id;
+    const order = await getOrderById(id);
+    ctx.body = new SuccessModel(order);
+    
+})
 
 
 
